@@ -3,7 +3,11 @@
   "version": "1.0.1",
   "description": "A Custom Logger that can print to the console, however you like, and writes logs for you as well.",
   "main": "src/Logger.js",
-  "keywords": ["logger", "log-system", "customizable-console"],
+  "keywords": [
+    "logger",
+    "log-system",
+    "customizable-console"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,7 +22,6 @@
   },
   "homepage": "https://github.com/koreanpanda345/Log-System#readme",
   "dependencies": {
-    "ascii-art": "^2.5.0",
     "chalk": "^4.1.0",
     "moment": "^2.29.0",
     "moment-format": "^1.2.8"
