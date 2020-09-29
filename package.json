@@ -2,7 +2,7 @@
   "name": "log-system",
   "version": "1.0.0",
   "description": "A Custom Logger",
-  "main": "src/index.js",
+  "main": "src/Logger.js",
   "scripts": {
     "start": "node .",
     "publish": "",

@@ -28,10 +28,22 @@ module.exports = class LoggerConfigurations {
             log: "(<time>) [ <source> ] => <log>"
         },
         logColors: {
-            error: "Red",
-            debug: "Green",
-            warn: "Yellow",
-            log: "Cyan"
+            error: {
+                text: "black",
+                background: "Red"
+            },
+            debug: {
+                text: "black",
+                background: "Green"
+            },
+            warn: {
+                text: "black",
+                background: "Yellow"
+            },
+            log: {
+                text: "black",
+                background: "Cyan"
+            }
         }
 
     };
@@ -42,7 +54,7 @@ module.exports = class LoggerConfigurations {
             // This will write the Name, and say thank you for using Log System.
             new System();
             
-            writeFileSync(`${require.main.path}/log-system.config.json`, JSON.stringify(configFile, null, 2), {flag: 'w'});
+            writeFileSync(`${require.main.path}/log-system.config.json`, JSON.stringify(this.configFile, null, 2), {flag: 'w'});
         }
         // We are going to read the config.json file, and pass it into the configFile.
         let config = readFileSync(`${require.main.path}/log-system.config.json`, {encoding: 'UTF-8'});
