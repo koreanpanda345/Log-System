@@ -5,11 +5,11 @@ LogSystem is a Logging package that can not only print to the console in how you
 ## Installing LogSystem
 If you are using npm:
 ```
-$ npm install --save log-sys
+$ npm i @koreanpanda/log-system --save
 ```
 If you are using yarn:
 ```
-$ yarn add log-sys
+$ yarn add @koreanpanda/log-system
 ```
 ## To Initalize The Logger
 

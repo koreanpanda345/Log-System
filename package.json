@@ -1,15 +1,21 @@
 {
-  "name": "log-system",
+  "name": "@koreanpanda/log-system",
   "version": "1.0.0",
-  "description": "A Custom Logger",
+  "description": "A Custom Logger that can print to the console, however you like, and writes logs for you as well.",
   "main": "src/Logger.js",
   "scripts": {
-    "start": "node .",
-    "publish": "",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koreanpanda345/Log-System.git"
   },
   "author": "Cody Spratford",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/koreanpanda345/Log-System/issues"
+  },
+  "homepage": "https://github.com/koreanpanda345/Log-System#readme",
   "dependencies": {
     "ascii-art": "^2.5.0",
     "chalk": "^4.1.0",
