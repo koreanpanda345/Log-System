@@ -2,6 +2,7 @@
  * This is Test Case Number 1
  * This is using default settings.
  */
+//------------------------------------------//
 
 const LogSystem = require("../../src/Logger");
 const logger = new LogSystem();
@@ -17,3 +18,4 @@ logger.debug("This is a debug message");
 console.log("Should not make any logs.");
 
 if(existsSync("./test/test_1/Logs/error")) return console.error("Test Failed");
+console.log('Test was successful');

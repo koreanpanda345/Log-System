@@ -1,11 +1,24 @@
+/**
+ * @summary This is the ErrorLogger. This handles everything has to do with Errors.
+ * @author Cody Spratford
+ * @since 9/29/2020
+ */
+
 const chalk = require("chalk");
 const moment = require("moment");
 const {existsSync, writeFileSync, readFileSync, mkdirSync} = require("fs");
 const path = require("path");
+/**
+ * This handles all error messages.
+ */
 module.exports = class ErrorLogger {
+    // The Error Message.
     error;
+    // The Source.
     source;
+    // The Pattern.
     pattern;
+    // The Color.
     color;
     constructor (error, pattern = "(<time>) [<source>] => <error>", source = "", color = "") {
         this.error = error;
@@ -13,7 +26,10 @@ module.exports = class ErrorLogger {
         this.pattern = pattern;
         this.color = color;
     }
-
+    /**
+     * This prints to the console.
+     * @param {string} type - Type of error.
+     */
     printError (type = "ERROR") {
         let message = this.pattern
                             .replace("<time>", moment().format())
@@ -22,7 +38,11 @@ module.exports = class ErrorLogger {
         
                             return console.log(this.color.background.startsWith("#") ? chalk[this.color.text].bgHex(this.color.background)(message) : chalk[this.color.text][`bg${this.color.background}`](message));
     }
-
+    /**
+     * This writes the error logs to the provided filepath.
+     * @param {string} filepath - The File location to write to.
+     * @param {string} type - Type of Error.
+     */
     WriteError (filepath, type = "ERROR") {
         let message = this.pattern
                             .replace("<time>", moment().format())

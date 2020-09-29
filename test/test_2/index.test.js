@@ -11,3 +11,4 @@ logger.log('This should be logged in the log file.');
 logger.log('testing 1.. 2.. 3..');
 console.log('Should make file.');
 if (!existsSync("./test/test_2/Logs/log")) return console.error("Test Failed - log folder doesn't exist.");
+console.log('Test was Successful');
