@@ -1,0 +1,6 @@
+                                          -------------------------------------
+-----------------------------------------|LOG FILE OF 2020-09-28T21:20:03-07:00|------------------------------------------------
+                                          -------------------------------------
+(2020-09-28T21:20:03-07:00) [ C:\Users\korea\source\repos\Pacakge\PandaLogger\test\test_2\index.test.js ] => This is a log message
+(2020-09-28T21:20:03-07:00) [ C:\Users\korea\source\repos\Pacakge\PandaLogger\test\test_2\index.test.js ] => This should be logged in the log file.
+(2020-09-28T21:20:03-07:00) [ C:\Users\korea\source\repos\Pacakge\PandaLogger\test\test_2\index.test.js ] => testing 1.. 2.. 3..

@@ -1,0 +1,19 @@
+{
+  "name": "log-system",
+  "version": "1.0.0",
+  "description": "A Custom Logger",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node .",
+    "publish": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cody Spratford",
+  "license": "MIT",
+  "dependencies": {
+    "ascii-art": "^2.5.0",
+    "chalk": "^4.1.0",
+    "moment": "^2.29.0",
+    "moment-format": "^1.2.8"
+  }
+}

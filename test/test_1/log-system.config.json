@@ -1,0 +1,33 @@
+{
+  "writeToLog": false,
+  "logPath": {
+    "error": "./Logs/error",
+    "debug": "./Logs/debug",
+    "warn": "./Logs/warn",
+    "log": "./Logs/log"
+  },
+  "logPatterns": {
+    "error": "(<time>) [ <source> ] => <error>",
+    "debug": "(<time>) [ <source> ] => <debug>",
+    "warn": "(<time>) [ <source> ] => <warn>",
+    "log": "(<time>) [ <source> ] => <log>"
+  },
+  "logColors": {
+    "error": {
+      "text": "black",
+      "background": "Red"
+    },
+    "debug": {
+      "text": "black",
+      "background": "Green"
+    },
+    "warn": {
+      "text": "black",
+      "background": "Yellow"
+    },
+    "log": {
+      "text": "black",
+      "background": "Cyan"
+    }
+  }
+}
