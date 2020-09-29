@@ -1,8 +1,9 @@
 {
   "name": "@koreanpanda/log-system",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Custom Logger that can print to the console, however you like, and writes logs for you as well.",
   "main": "src/Logger.js",
+  "keywords": ["logger", "log-system", "customizable-console"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
