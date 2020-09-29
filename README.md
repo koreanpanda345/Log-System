@@ -16,7 +16,7 @@ $ yarn add @koreanpanda/log-system
 ## To Initalize The Logger
 
 ```js
-const LogSystem = require("log-sys");
+const LogSystem = require("@koreanpanda/log-system");
 const logger = new LogSystem();
 ```
 
