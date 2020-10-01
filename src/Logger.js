@@ -108,6 +108,5 @@ module.exports = class Logger {
             _debug.printDebug();
         }
     }
-
 }
 

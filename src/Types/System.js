@@ -22,5 +22,9 @@ module.exports = class System {
         console.log(chalk.greenBright(ascii));
         // Write thank you for using Log System.
         console.log(chalk.black.bgGreenBright("Thank you for using Log System. Your config file will be maded now. Enjoy using Log System! ^-^"));
+        console.log(chalk.black.bgGreenBright("If you like this package, and want to help support it, then please share this with others."));
+        console.log(chalk.black.bgGreenBright("Documentations can be found at https://github.com/koreanpanda345/Log-System/tree/master/Documentation"));
+        console.log(chalk.black.bgGreenBright("Note: Log System will be changing it's name Very Soon, stay tune to what it will be."));
+        
     }
 }

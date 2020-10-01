@@ -23,6 +23,7 @@
   "homepage": "https://github.com/koreanpanda345/Log-System#readme",
   "dependencies": {
     "chalk": "^4.1.0",
+    "cli-table": "^0.3.1",
     "moment": "^2.29.0",
     "moment-format": "^1.2.8"
   }
