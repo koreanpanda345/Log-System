@@ -22,7 +22,7 @@ module.exports = class LoggerConfigurations {
             log: './Logs/log'
         },
         logPatterns: {
-            error: "(<time>) [ <source> ] => <error>",
+            error: "(<time>) <color>[ <source> ]</color> => <error>",
             debug: "(<time>) [ <source> ] => <debug>",
             warn: "(<time>) [ <source> ] => <warn>",
             log: "(<time>) [ <source> ] => <log>"
@@ -44,7 +44,8 @@ module.exports = class LoggerConfigurations {
                 text: "black",
                 background: "Cyan"
             }
-        }
+        },
+        timePattern: "MMMM Do YYYY, h:mm:ss a"
 
     };
 
@@ -59,5 +60,10 @@ module.exports = class LoggerConfigurations {
         // We are going to read the config.json file, and pass it into the configFile.
         let config = readFileSync(`${require.main.path}/log-system.config.json`, {encoding: 'UTF-8'});
         this.configFile = JSON.parse(config);
+        if(!this.configFile.timePattern)
+        {
+            this.configFile.timePattern = "MMMM Do YYYY, h:mm:ss a";
+            writeFileSync(`${require.main.path}/log-system.config.json`, JSON.stringify(this.configFile, null, 2), {flag: 'w'});
+        }
     }
 }

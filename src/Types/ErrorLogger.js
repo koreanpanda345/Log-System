@@ -20,11 +20,14 @@ module.exports = class ErrorLogger {
     pattern;
     // The Color.
     color;
-    constructor (error, pattern = "(<time>) [<source>] => <error>", source = "", color = "") {
+    // Time Pattern.
+    timePattern;
+    constructor (error, pattern = "(<time>) [<source>] => <error>", source = "", color = "", timePattern) {
         this.error = error;
         this.source = source;
         this.pattern = pattern;
         this.color = color;
+        this.timePattern = timePattern;
     }
     /**
      * This prints to the console.
@@ -32,10 +35,11 @@ module.exports = class ErrorLogger {
      */
     printError (type = "ERROR") {
         let message = this.pattern
-                            .replace("<time>", moment().format())
+                            .replace("<time>", moment().format(this.timePattern))
                             .replace("<source>", this.source).replace("<source-short>", path.basename(this.source)).replace("<error>", this.error)
                             .replace("<type>", type);
-        
+                            if(message.includes("<color>"))
+                                return console.log(`${message.split("<color>")[0]}${this.color.background.startsWith("#") ? chalk[this.color.text].bgHex(this.color.background)(message.split("<color>")[1].split("</color>")[0]) : chalk[this.color.text][`bg${this.color.background}`](message.split("<color>")[1].split("</color>")[0])}${message.split("</color>")[1]}`);
                             return console.log(this.color.background.startsWith("#") ? chalk[this.color.text].bgHex(this.color.background)(message) : chalk[this.color.text][`bg${this.color.background}`](message));
     }
     /**
@@ -45,7 +49,7 @@ module.exports = class ErrorLogger {
      */
     WriteError (filepath, type = "ERROR") {
         let message = this.pattern
-                            .replace("<time>", moment().format())
+                            .replace("<time>", moment().format(this.timePattern))
                             .replace("<source>", this.source).replace("<source-short>", path.basename(this.source)).replace("<error>", this.error)
                             .replace("<type>", type);
 

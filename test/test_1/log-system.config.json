@@ -7,7 +7,7 @@
     "log": "./Logs/log"
   },
   "logPatterns": {
-    "error": "(<time>) [ <source> ] => <error>",
+    "error": "(<time>) <color>[ <source> ]</color> => <error>",
     "debug": "(<time>) [ <source> ] => <debug>",
     "warn": "(<time>) [ <source> ] => <warn>",
     "log": "(<time>) [ <source> ] => <log>"
@@ -29,5 +29,6 @@
       "text": "black",
       "background": "Cyan"
     }
-  }
+  },
+  "timePattern": "MMMM Do YYYY, h:mm:ss a"
 }

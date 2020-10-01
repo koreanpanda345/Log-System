@@ -21,18 +21,23 @@ module.exports = class LogLogger {
     pattern;
     // The color.
     color;
-    constructor (log, pattern = "(<time>) [<source>] => <log>", source = "", color) {
+    // Time Pattern
+    timePattern;
+    constructor (log, pattern = "(<time>) [<source>] => <log>", source = "", color, timePattern) {
         this.log = log;
         this.source = source;
         this.pattern = pattern;
         this.color = color;
+        this.timePattern = timePattern;
     }
     /**
      * This prints the default log messages to the console.
      */
     printLog () {
-        let message = this.pattern.replace("<time>", moment().format()).replace("<source>", this.source).replace("<source-short>", path.basename(this.source)).replace("<log>", this.log);
+        let message = this.pattern.replace("<time>", moment().format(this.timePattern)).replace("<source>", this.source).replace("<source-short>", path.basename(this.source)).replace("<log>", this.log);
         
+        if(message.includes("<color>"))
+            return console.log(`${message.split("<color>")[0]}${this.color.background.startsWith("#") ? chalk[this.color.text].bgHex(this.color.background)(message.split("<color>")[1].split("</color>")[0]) : chalk[this.color.text][`bg${this.color.background}`](message.split("<color>")[1].split("</color>")[0])}${message.split("</color>")[1]}`);
         return console.log(this.color.background.startsWith("#") ? chalk[this.color.text].bgHex(this.color.background)(message) : chalk[this.color.text][`bg${this.color.background}`](message));
     }
     /**
@@ -40,7 +45,7 @@ module.exports = class LogLogger {
      * @param {string} filepath 
      */
     WriteLog (filepath) {
-        let message = this.pattern.replace("<time>", moment().format()).replace("<source>", this.source).replace("<source-short>", path.basename(this.source)).replace("<log>", this.log);
+        let message = this.pattern.replace("<time>", moment().format(this.timePattern)).replace("<source>", this.source).replace("<source-short>", path.basename(this.source)).replace("<log>", this.log);
         if(!existsSync(filepath)) mkdirSync(filepath);
         if (!existsSync(filepath + "/" + `${new Date(Date.now()).getDate()}.log`)) {
             message = `                                          -------------------------------------

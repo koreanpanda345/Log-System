@@ -31,24 +31,32 @@ Log Patterns are basically a template the the log methods uses. you can change i
 "<source>" // The full file path that the error occured in.
 "<source-short>" // The file name that the error occured in.
 "<time>" // The timestamp. Bacisally when the message was sent.
+"<color>" // Put Text in between this and </color> in color instead of the entire log message.
+"</color>" // Put text in between <color> and this in color instead of the entire log message.
 
 //Log Patterns Placeholders.
 "<message>" // Log message
 "<source>" // The full file path that the log originated in.
 "<source-short" // The file name that the log originated in.
 "<time>" // The timestamp. Basically when the message was sent.
+"<color>" // Put Text in between this and </color> in color instead of the entire log message.
+"</color>" // Put text in between <color> and this in color instead of the entire log message.
 
 //Warn Patterns Placeholders.
 "<warn>" // Warn message
 "<source>" // The full file path that the warning originated in.
 "<source-short" // The file name that the warning originated in.
 "<time>" // The timestamp. Basically when the message was sent.
+"<color>" // Put Text in between this and </color> in color instead of the entire log message.
+"</color>" // Put text in between <color> and this in color instead of the entire log message.
 
 //Debug Patterns Placeholders.
 "<debug>" // Debug message
 "<source>" // The full file path that the debug originated in.
 "<source-short" // The file name that the debug originated in.
 "<time>" // The timestamp. Basically when the message was sent.
+"<color>" // Put Text in between this and </color> in color instead of the entire log message.
+"</color>" // Put text in between <color> and this in color instead of the entire log message.
 ```
 
 ## How to change the colors of the types?

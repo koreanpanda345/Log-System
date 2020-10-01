@@ -29,5 +29,6 @@
       "text": "black",
       "background": "Cyan"
     }
-  }
+  },
+  "timePattern": "MMMM Do YYYY, h:mm:ss a"
 }

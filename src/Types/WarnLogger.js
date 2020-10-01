@@ -21,17 +21,26 @@ module.exports = class WarnLogger {
     pattern;
     // The colors to use.
     color;
-    constructor (warn, pattern = "(<time>) [<source>] => <log>", source = "", color = "") {
+    // Time Pattern
+    timePattern;
+    constructor (warn, pattern = "(<time>) [<source>] => <log>", source = "", color = "", timePattern) {
         this.warn = warn;
         this.source = source;
         this.pattern = pattern;
         this.color = color;
+        this.timePattern = timePattern;
     }
     /**
      * This will Print to the console.
      */
     printWarn () {
-        let message = this.pattern.replace("<time>", moment().format()).replace("<source>", this.source).replace("<source-short>", path.basename(this.source)).replace("<warn>", this.warn);
+        let message = this.pattern
+            .replace("<time>", moment().format(this.timePattern))
+            .replace("<source>", this.source)
+            .replace("<source-short>", path.basename(this.source))
+            .replace("<warn>", this.warn);
+        if(message.includes("<color>"))
+            return console.log(`${message.split("<color>")[0]}${this.color.background.startsWith("#") ? chalk[this.color.text].bgHex(this.color.background)(message.split("<color>")[1].split("</color>")[0]) : chalk[this.color.text][`bg${this.color.background}`](message.split("<color>")[1].split("</color>")[0])}${message.split("</color>")[1]}`);
         
         return console.log(this.color.background.startsWith("#") ? chalk[this.color.text].bgHex(this.color.background)(message) : chalk[this.color.text][`bg${this.color.background}`](message));
     }
@@ -40,7 +49,12 @@ module.exports = class WarnLogger {
      * @param {string} filepath - the file location.
      */
     WriteWarn (filepath) {
-        let message = this.pattern.replace("<time>", moment().format()).replace("<source>", this.source).replace("<source-short>", path.basename(this.source)).replace("<warn>", this.warn);
+        let message = this.pattern
+        .replace("<time>", moment().format(this.timePattern))
+        .replace("<source>", this.source)
+        .replace("<source-short>", path.basename(this.source))
+        .replace("<warn>", this.warn);
+
         // if the warn directory doesn't exist, then we will make one.
         if(!existsSync(filepath)) mkdirSync(filepath);
         // if the log file doesn't exist, then we are going to make it.

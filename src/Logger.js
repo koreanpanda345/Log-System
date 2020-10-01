@@ -50,7 +50,7 @@ module.exports = class Logger {
      * @param {string} type - type of error.
      */
     error (_error, type = "ERROR") {
-        const error = new ErrorLogger(_error, this.config.configFile.logPatterns.error, `${require.main.filename}`, this.config.configFile.logColors.error)
+        const error = new ErrorLogger(_error, this.config.configFile.logPatterns.error, `${require.main.filename}`, this.config.configFile.logColors.error, this.config.configFile.timePattern)
         // if the config.writeToLog is true, then it will write logs.
         if (this.config.configFile.writeToLog) {
             error.WriteError(this.config.configFile.logPath.error, type);
@@ -66,7 +66,7 @@ module.exports = class Logger {
      * @param {any} message - the log message.
      */
     log (message) {
-        const log = new LogLogger(message, this.config.configFile.logPatterns.log, `${require.main.filename}`, this.config.configFile.logColors.log);
+        const log = new LogLogger(message, this.config.configFile.logPatterns.log, `${require.main.filename}`, this.config.configFile.logColors.log, this.config.configFile.timePattern);
         // if the config.writeToLog is true, then it will write logs.
         if (this.config.configFile.writeToLog) {
             log.WriteLog(this.config.configFile.logPath.log);
@@ -81,7 +81,7 @@ module.exports = class Logger {
      * @param {any} warning - the warning message.
      */
     warn (warning) {
-        const warn = new WarnLogger(warning, this.config.configFile.logPatterns.warn, `${require.main.filename}`, this.config.configFile.logColors.warn);
+        const warn = new WarnLogger(warning, this.config.configFile.logPatterns.warn, `${require.main.filename}`, this.config.configFile.logColors.warn, this.config.configFile.timePattern);
         // if the config.writeToLog is true, then it will write logs.
         if (this.config.configFile.writeToLog) {
             warn.WriteWarn(this.config.configFile.logPath.warn);
@@ -97,7 +97,7 @@ module.exports = class Logger {
      * @param {any} debug - the debug message.
      */
     debug (debug) {
-        const _debug = new DebugLogger(debug, this.config.configFile.logPatterns.debug, `${require.main.filename}`, this.config.configFile.logColors.debug);
+        const _debug = new DebugLogger(debug, this.config.configFile.logPatterns.debug, `${require.main.filename}`, this.config.configFile.logColors.debug, this.config.configFile.timePattern);
         // if the config.writeToLog is true, then it will write logs.
         if (this.config.configFile.writeToLog) {
             _debug.WriteDebug(this.config.configFile.logPath.debug);
