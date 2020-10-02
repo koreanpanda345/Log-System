@@ -49,9 +49,11 @@ module.exports = class LoggerConfigurations {
 
     };
 
-    constructor () {
+    constructor () 
+    {
         // Checks if the cwd has a log-sys.config.json, if not then we are going to make one.
-        if(!existsSync(`${require.main.path}/log-system.config.json`)) {
+        if(!existsSync(`${require.main.path}/log-system.config.json`))
+        {
             // This will write the Name, and say thank you for using Log System.
             new System();
             

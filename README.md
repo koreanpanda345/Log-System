@@ -1,6 +1,8 @@
 # LogSystem
 [![npm](https://img.shields.io/npm/v/github-buttons)](https://www.npmjs.com/package/@koreanpanda/log-system/v/1.0.0)
 
+# Use @koreanpanda/inscriber now. This package will not managed, and will be removed sometime in November.
+
 LogSystem is a Logging package that can not only print to the console in how you want it to be exactly for any of the types, but it can also Write Logs, to make it easier for those that need a log system, but don't know where to start. It is super simple, and easy to setup. Highly Customizable, down to the single character.
 
 # Note:
